@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="add.js"></script>
+    <script src="besty.js"></script>
+    <link rel="stylesheet" href="styl1.css">
+    <link rel="stylesheet" href="styl2.css">
+    <script src="https://cdn.jsdelivr.net/gh/Harveyfox/labo.github.io@main/bestycdn.js"></script>
+
+</head>
+
+<body>
+
+
+
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+       
+        <div class="dropdown">
+          <button class="dropbtn">Dropdown 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="about.html">About</a>
+            <a   onclick="shareContent()">Share</a>
+            <a href="#"onclick="printContent()">Print</a>
+          </div>
+        </div> 
+      </div>
+
+
+
+
+<style> table {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+  }</style>
+
+
+<h1>Pancreas Tests</h1>
+
+
+<table> <tr  id="first-rowtt"> 
+    <th>LAB Test</th>
+    <th>Result + Normal Range</th>
+    </tr>
+
+<tr id='+lipase' > <td><strong>lipase (serum)=</strong><input id='lipase' oninput='lipase()'><select id='lipaseselect' onchange='lipase()'> <option value='U/L'>U/L</option> <option value='MicroKat/L'>MicroKat/L</option> </select><br> <select id='sexlipase' onchange='lipase()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resulttestlipase' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resulttest1lipase' style='background-color: rgb(2, 255, 44);font-size: large; color: black; font-weight: bold;' ></p> <p id='resulttest2lipase'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+    <tr id='+Amylase' > <td><strong style="color: rgb(217, 80, 255);">Amylase (serum)=</strong><input id='Amylase' oninput='Amylase();liverextra()'><select id='Amylaseselect' onchange='Amylase()'> <option value='U/L'>U/L</option> <option value='MicroKat/L'>MicroKat/L</option> </select><br> <select id='sexAmylase' onchange='Amylase()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextAmylase' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1Amylase' style='background-color: rgb(2, 255, 44);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2Amylase'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td>
+ 

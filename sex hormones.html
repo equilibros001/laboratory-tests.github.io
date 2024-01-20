@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="add.js"></script>
+    <script src="besty.js"></script>
+    <link rel="stylesheet" href="styl1.css">
+    <link rel="stylesheet" href="styl2.css">
+    <script src="https://cdn.jsdelivr.net/gh/Harveyfox/labo.github.io@main/bestycdn.js"></script>
+
+</head>
+
+<body>
+
+
+
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+       
+        <div class="dropdown">
+          <button class="dropbtn">Dropdown 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="about.html">About</a>
+            <a   onclick="shareContent()">Share</a>
+            <a href="#"onclick="printContent()">Print</a>
+          </div>
+        </div> 
+      </div>
+
+
+<style> table {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+  }</style>
+
+
+<h1> Hormone Tests</h1>
+
+
+<table> <tr  id="first-rowtt"> 
+    <th>LAB Test</th>
+    <th>Result + Normal Range</th>
+    </tr>
+
+
+<tr id='+FSH' > <td><strong style='color: rgb(255, 2, 2)'>FSH=</strong><input id='FSH' oninput='FSH();hormosexextra()'><select id='FSHselect' onchange='FSH()'> <option value=' mIU/mL'> mIU/mL</option> <option value=' IU/L'> IU/L</option> </select><br> <select id='sexFSH' onchange='FSH()'> <option value='male'>Male</option> <option value='premenopause'>Female premenopause</option> <option value='midcyclepeak'>Female midcycle peak</option> <option value='postmenopause'>Female postmenopause</option> </select> </td> <td><p id='resultTextFSH' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1FSH' style='background-color: rgb(2, 255, 27);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2FSH' style='background-color: rgb(217, 255, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+  <tr id='+LH' > <td><strong style='color: rgb(2, 255, 23)'>LH=</strong><input id='LH' oninput='LH();hormosexextra()'><select id='LHselect' onchange='LH()'> <option value=' mIU/mL'> mIU/mL</option> <option value=' IU/L'> IU/L</option> </select><br> <select id='sexLH' onchange='LH()'><option value='male'>Male</option>  <option value='Follicularphase'>Female follicular phase</option> <option value='midcycle'>Female midcycle</option> <option value='postmenopause'>Female postmenopause</option></select> </td> <td><p id='resultTextLH' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1LH' style='background-color: rgb(2, 255, 32);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2LH' style='background-color: rgb(2, 242, 255);font-size: large; color: black; font-weight: bold;' ></p></td> 
+  <tr id='+Cortisol' > <td><strong style='color: rgb(2, 48, 255)'>Cortisol=</strong><input id='Cortisol' oninput='Cortisol();hormosexextra()'><select id='Cortisolselect' onchange='Cortisol()'> <option value='Microg/dL'>Microg/dL</option> <option value='nmol/L'>nmol/L</option> </select><br> <select id='sexCortisol' onchange='Cortisol()'><option value='8am'>Morning(8am)</option><option value='4pm'>Afternoon(4pm)</option><option value='8pm'>Evening(8pm)</option></select> </td> <td><p id='resultTextCortisol' style='background-color: rgb(249, 9, 1);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1Cortisol' style='background-color: rgb(2, 255, 2);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2Cortisol' style='background-color: rgb(2, 238, 255);font-size: large; color: black; font-weight: bold;' ></p></td> 
+ <tr id='+GH' > <td><strong style='color: rgb(141, 2, 255)'>GH=</strong><input id='GH' oninput='GH();hormosexextra()'><select id='GHselect' onchange='GH()'> <option value='ng/mL'>ng/mL</option> <option value='pmol/L'>pmol/L</option> </select><br> <select id='sexGH' onchange='GH()'><option value='male'>Male</option> <option value='female'>Female</option><option value='Child'>Child</option></select> </td> <td><p id='resultTextGH' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1GH' style='background-color: rgb(48, 255, 2);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2GH' style='background-color: rgb(2, 247, 255);font-size: large; color: black; font-weight: bold;' ></p></td> 
+  
+<tr id='+Prolactin' > <td><strong style='color: rgb(255, 2, 175)'>Prolactin=</strong><input id='Prolactin' oninput='Prolactin();hormosexextra()'><select id='Prolactinselect' onchange='Prolactin()'> <option value='ng/mL'>ng/mL</option> <option value='µg/L'>µg/L</option> </select><br> <select id='sexProlactin' onchange='Prolactin()'><option value='male'>Male</option><option value='nonpregnant'>Female (nonpregnant)</option><option value='pregnant'>Female (pregnant)</option> </select> </td> <td><p id='resultTextProlactin' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1Prolactin' style='background-color: rgb(2, 255, 48);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2Prolactin' style='background-color: rgb(2, 213, 255);font-size: large; color: black; font-weight: bold;' ></p></td>
+ <tr id='+Hydroxycorticosteroids' > <td><strong style='color: rgb(141, 2, 255)'>17-Hydroxycorticosteroids=</strong><input id='Hydroxycorticosteroids' oninput='Hydroxycorticosteroids()'><select id='corticosteroidsselect' onchange='Hydroxycorticosteroids()'> <option value='mg/24 h'>mg/24 h</option> <option value='Micromol/24 h'>Micromol/24 h</option> </select><br> <select id='sex17corticosteroid' onchange='Hydroxycorticosteroids()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultText17corticosteroid' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText117corticosteroid' style='background-color: rgb(2, 255, 48);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText217corticosteroid' style='background-color: rgb(2, 213, 255);font-size: large; color: black; font-weight: bold;' ></p></td>
+  <tr id='+Ketosteroids' > <td><strong>Ketosteroids=</strong><input id='Ketosteroids' oninput='Ketosteroids()'><select id='Ketosteroidselect' onchange='Ketosteroids()'> <option value='mg/24 h'>mg/24 h</option> <option value=' Micromol/24 h'> Micromol/24 h</option> </select><br> <select id='sexKetosteroids' onchange='Ketosteroids()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextKetosteroids' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1Ketosteroids' style='background-color: rgb(6, 255, 2);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2Ketosteroids' style='background-color: rgb(2, 221, 255);font-size: large; color: black; font-weight: bold;' ></p></td> 
+    <tr id='+Estrogens' > <td><strong style='color: rgb(255, 2, 230)'>Estrogens=</strong><input id='Estrogens' oninput='Estrogens();hormosexextra()'><select id='Estrogensselect' onchange='Estrogens()'> <option value='pg/mL'>pg/mL</option> <option value='ng/L'>ng/L</option> </select><br> <select id='sexEstrogens' onchange='Estrogens()'><option value='male'>Male</option> <option value='Follicularphase'>Female Follicular phase</option><option value='Lutealphase'>Female Luteal phase</option><option value='Postmenopausal'>Female Postmenopausal</option></select> </td> <td><p id='resultTextEstrogens' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1Estrogens' style='background-color: rgb(2, 255, 19);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2Estrogens' style='background-color: rgb(2, 209, 255);font-size: large; color: black; font-weight: bold;' ></p></td> 
+   <tr id='+Hydroxyprogesterone' > <td><strong style='color: rgb(141, 255, 2)'>17alpha-Hydroxyprogesterone=</strong><input id='Hydroxyprogesterone' oninput='Hydroxyprogesterone()'><select id='Hydroxyprogesteroneselect' onchange='Hydroxyprogesterone()'> <option value='ng/dL'>ng/dL</option> <option value='nmol/L'>nmol/L</option> </select><br> <select id='sexHydroxyprogesterone' onchange='Hydroxyprogesterone()'><option value='male'>Male</option><option value='Follicularphase'>Female Follicular phase</option> <option value='Lutealphase'>Female Luteal phase</option><option value='Postmenopausal'>Female Postmenopausal</option></select> </select> </td> <td><p id='resultTextHydroxyprogesterone' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1Hydroxyprogesterone' style='background-color: rgb(2, 255, 10);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2Hydroxyprogesterone' style='background-color: rgb(2, 255, 230);font-size: large; color: black; font-weight: bold;' ></p></td> 
+ <tr id='+Testosterone' > <td><strong style='color: rgb(2, 19, 255)'>Testosterone=</strong><input id='Testosterone' oninput='Testosterone();hormosexextra()'><select id='Testosteroneselect' onchange='Testosterone()'> <option value='ng/dL'>ng/dL</option> <option value='nmol/L'>nmol/L</option> </select><br> <select id='sexTestosterone' onchange='Testosterone()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextTestosterone' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1Testosterone' style='background-color: rgb(2, 255, 6);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2Testosterone' style='background-color: rgb(2, 255, 242);font-size: large; color: black; font-weight: bold;' ></p></td>
+    <tr id='+DHEAsulfat' > <td><strong style='color: rgb(255, 137, 2)'>DHEA-sulfat=</strong><input id='DHEAsulfat' oninput='DHEAsulfat()'><select id='DHEAsulfatselect' onchange='DHEAsulfat()'> <option value='Microg/dL'>Microg/dL</option> <option value='Micromol/L'>Micromol/L</option> </select><br> <select id='sexDHEAsulfat' onchange='DHEAsulfat()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextDHEAsulfat' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1DHEAsulfat' style='background-color: rgb(2, 255, 6);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2DHEAsulfat' style='background-color: rgb(2, 255, 242);font-size: large; color: black; font-weight: bold;' ></p></td> 
+    
+
+
+
+</body>
+
+</html>

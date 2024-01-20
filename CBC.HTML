@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="add.js"></script>
+    <link rel="stylesheet" href="styl1.css">
+    <link rel="stylesheet" href="styl2.css">
+    <script src="besty.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Harveyfox/labo.github.io@main/bestycdn.js"></script>
+
+</head>
+
+<body>
+
+
+
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+       
+        <div class="dropdown">
+          <button class="dropbtn">Dropdown 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="about.html">About</a>
+            <a   onclick="shareContent()">Share</a>
+            <a href="#"onclick="printContent()">Print</a>
+          </div>
+        </div> 
+      </div>
+
+
+
+
+
+<style> table {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+    width: 50%;
+  }</style>
+
+
+<h1>Complete blood count (CBC) </h1>
+
+
+<table> <tr  id="first-rowtt"> 
+    <th>LAB Test</th>
+    <th>Result + Normal Range</th>
+    </tr>
+    <tr id='+Hematocrit' > <td><strong style="color: rgb(255, 166, 0);">Hematocrit=</strong><input id='Hematocrit' oninput='Hematocrit();cbcextra();'><select id='Hematocritbselect' onchange='Hematocrit()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select> <select id='sexHematocritb' onchange='Hematocrit()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextHematocritb' style='background-color: rgb(255, 0, 0);font-size: large; color: black;'></p> <p id='resultText1Hematocritb' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2Hematocritb'style='background-color: orange ;font-size:large; color: black;' ></p></td>
+       <tr id='+Hemoglobin' > <td><strong style="color: rgb(207, 20, 220);">Hemoglobin (Hb)=</strong><input id='Hemoglobin' oninput='Hemoglobin();cbcextra();'><select id='Hemoglobinselect' onchange='Hemoglobin()'> <option value='g/dl'>g/dl</option> <option value='mmol/l'>mmol/l</option> </select> <select id='sexHemoglobin' onchange='Hemoglobin()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextHemoglobin' style='background-color: rgb(255, 0, 0);font-size: large; color: black;'></p> <p id='resultText1Hemoglobin' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2Hemoglobin'style='background-color: orange ;font-size: large; color: black;' ></p></td> 
+      <tr id='+MCH' > <td><strong style="color: rgb(187, 20, 220);">MCH=</strong><input id='MCH' oninput='MCH();cbcextra();;'><select id='MCHselect' onchange='MCH()'> <option value='pg/cell'>pg/cell</option> <option value='fmol'>fmol</option> </select> <select id='sexMCH' onchange='MCH()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextMCH' style='background-color: rgb(255, 21, 0);font-size: large; color: black;'></p> <p id='resultText1MCH' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2MCH'style='background-color: orange ;font-size: large; color: black;' ></p></td> 
+  <tr id='+MCHC' > <td><strong style="color: rgb(187, 20, 220);">MCHC=</strong><input id='MCHC' oninput='MCHC();cbcextra();;'><select id='MCHCselect' onchange='MCHC()'> <option value='g Hb/dl'>g Hb/dl</option> <option value='mmol/l'>mmol/l</option> </select> <select id='sexMCHC' onchange='MCHC()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextMCHC' style='background-color: chartreuse;font-size: large; color: black;'></p> <p id='resultText1MCHC' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2MCHC'style='background-color: chartreuse;font-size: large; color: black;' ></p></td>  
+  <tr id='+MCV' > <td><strong style="color: rgb(187, 20, 220);">MCV=</strong><input id='MCV' oninput='MCV();cbcextra();'><select id='MCVselect' onchange='MCV()'> <option value='Micm3'>Micm3</option> <option value='fL'>fL</option> </select> <select id='sexMCV' onchange='MCV()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextMCV' style='background-color: rgb(255, 0, 0);font-size: large; color: black;'></p> <p id='result1TextMCV' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='result2TextMCV'style='background-color: orange ;font-size: large; color: black;' ></p></td> <tr id='+Plateletcount' > <td><strong style="color: rgb(220, 93, 20);">Platelet count=</strong><input id='Plateletcount' oninput='Plateletcount()'><select id='Plateletcountselect' onchange='Plateletcount()'> <option value='10pow3 /uL'>10pow3 /uL</option> <option value='10pow9/L'>10pow9/L</option> </select> <select id='sexPlateletcount' onchange='Plateletcount()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextPlateletcount' style='background-color: rgb(255, 21, 0);font-size: large; color: black;'></p> <p id='resultText1Plateletcount' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2Plateletcount'style='background-color: orange ;font-size: large; color: black;' ></p></td> <script>function Plateletcount(){var Plateletcount = parseFloat(document.getElementById('Plateletcount').value);const Plateletcountselect = document.getElementById('Plateletcountselect').value;;const selectionPlateletcount = (Plateletcountselect === '10pow3 /uL') ? 1:1 ;var maxPlateletcount = document.getElementById('sexPlateletcount').value;var minPlateletcount = document.getElementById('sexPlateletcount').value;const sexPlateletcount = document.getElementById('sexPlateletcount').value;if(sexPlateletcount==='male'){maxPlateletcount=450 ,minPlateletcount=150}if(sexPlateletcount==='female'){maxPlateletcount=450 ,minPlateletcount=150};if ( Plateletcount > maxPlateletcount*selectionPlateletcount ) {resultTextPlateletcount.textContent = 'High Platelet count '+' ----------'+' Normal range =>' +'For'+ ' '+`${sexPlateletcount}`+ ':['+(minPlateletcount*selectionPlateletcount).toFixed(2) +' / '+(maxPlateletcount*selectionPlateletcount).toFixed(2) + ']'+`${Plateletcountselect}`;} else {resultTextPlateletcount.textContent = '';};if (Plateletcount >= minPlateletcount*selectionPlateletcount && Plateletcount <= maxPlateletcount*selectionPlateletcount ) {resultText1Plateletcount.textContent = 'Normal Platelet count '+' '+'---------- '+' Normal range =>' +'For'+ ' '+`${sexPlateletcount}`+ ':['+(minPlateletcount*selectionPlateletcount).toFixed(2) +' / '+(maxPlateletcount*selectionPlateletcount).toFixed(2) + ']'+`${Plateletcountselect}`;} else {resultText1Plateletcount.textContent = '';};if (Plateletcount < minPlateletcount*selectionPlateletcount && minPlateletcount*selectionPlateletcount>0) { resultText2Plateletcount.textContent = ' Low Platelet count '+' '+'---------- '+' Normal range =>' +'For'+ ' '+`${sexPlateletcount}`+ ':['+(minPlateletcount*selectionPlateletcount).toFixed(2) +' / '+(maxPlateletcount*selectionPlateletcount).toFixed(2) + ']'+`${Plateletcountselect}`;} else {resultText2Plateletcount.textContent = '';}}</script>
+<tr id='+Redbloodcount' > <td><strong style="color: rgb(255, 3, 54);">Red blood cell count=</strong><input id='Redbloodcount' oninput='Redbloodcount();cbcextra();checkDateValidity();'><select id='Redbloodcountselect' onchange='Redbloodcount()'> <option value='10pow6/MicroL'>10pow6/MicroL</option> <option value='10pow12/L'>10pow12/L</option> </select> <select id='sexRedbloodcount' onchange='Redbloodcount()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextRedbloodcount' style='background-color: rgb(255, 0, 0);font-size: large; color: black;'></p> <p id='resultText1Redbloodcount' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2Redbloodcount'style='background-color: orange ;font-size: large; color: black;' ></p></td> 
+  <tr id='+Reticulocytecount' > <td><strong style="color: rgb(3, 11, 255);">Reticulocytecount=</strong><input id='Reticulocytecount' oninput='Reticulocytecount();cbcextra();checkDateValidity();'><select id='Reticulocytecountselect' onchange='Reticulocytecount()'> <option value='10pow3/MicroL'>10pow3/MicroL</option> <option value='10pow9/L'>10pow9/L</option> </select> <select id='sexReticulocytecount' onchange='Reticulocytecount()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTexReticulocytecount' style='background-color: rgb(255, 0, 0);font-size: large; color: black;'></p> <p id='resultTex1Reticulocytecount' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultTex2Reticulocytecount'style='background-color: orange ;font-size: large; color: black;' ></p></td> 
+    <tr id='+Whitebloodcellcount' > <td><strong style="color: rgb(163, 41, 215);">White blood cell count=</strong><input id='Whitebloodcellcount' oninput='Whitebloodcellcount();cbcextra();;'><select id='Whitebloodcellcountselect' onchange='Whitebloodcellcount()'> <option value='10pow3/MicroL'>10pow3/MicroL</option> <option value='10pow9/L'>10pow9/L</option> </select> <select id='sexWhitebloodcellcount' onchange='Whitebloodcellcount()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextWhitebloodcellcount' style='background-color: rgb(255, 0, 0);font-size: large; color: black;'></p> <p id='resultText1Whitebloodcellcount' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2Whitebloodcellcount'style='background-color: orange ;font-size: large; color: black;' ></p></td> 
+      <tr id='+Neutrophils' > <td><strong style="color: rgb(39, 60, 43);">Neutrophils=</strong><input id='Neutrophils' oninput='Neutrophils();cbcextra();;'><select id='Neutrophilsselect' onchange='Neutrophils()'> <option value='/MicroL'>/MicroL</option> <option value='10pow9/L'>10pow9/L</option> </select> <select id='sexNeutrophils' onchange='Neutrophils()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextNeutrophils' style='background-color: rgb(255, 8, 0);font-size: large; color: black;'></p> <p id='resultText1Neutrophils' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2Neutrophils'style='background-color: orange ;font-size: large; color: black;' ></p></td>
+         <tr id='+Lymphocvtes' > <td><strong style="color: rgb(19, 23, 19);">Lymphocvtes=</strong><input id='Lymphocvtes' oninput='Lymphocvtes();cbcextra()'><select id='Lymphocvtesselect' onchange='Lymphocvtes()'> <option value='/MicroL'>/MicroL</option> <option value='10pow9/L'>10pow9/L</option> </select> <select id='sexLymphocvtes' onchange='Lymphocvtes()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextLymphocvtes' style='background-color: rgb(255, 0, 0);font-size: large; color: black;'></p> <p id='resultText1Lymphocvtes' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2Lymphocvtes'style='background-color: orange ;font-size: large; color: black;' ></p></td>
+            <tr id='+Monocvtes' > <td><strong style="color: rgb(3, 238, 255);">Monocytes=</strong><input id='Monocvtes' oninput='Monocvtes();cbcextra();checkDateValidity();'><select id='Monocvtesselect' onchange='Monocvtes()'> <option value='/MicroL'>/MicroL</option> <option value='10pow9/L'>10pow9/L</option> </select> <select id='sexMonocvtes' onchange='Monocvtes()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextMonocvtes' style='background-color: rgb(255, 0, 0);font-size: large; color: black;'></p> <p id='resultText1Monocvtes' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2Monocvtes'style='background-color: orange ;font-size: large; color: black;' ></p></td> 
+   <tr id='+Eosinophils' > <td><strong style="color: rgb(255, 196, 3);">Eosinophils=</strong><input id='Eosinophils' oninput='Eosinophils();cbcextra();checkDateValidity();'><select id='Eosinophilsselect' onchange='Eosinophils()'> <option value='/MicroL'>/MicroL</option> <option value='10pow9/L'>10pow9/L</option> </select> <select id='sexEosinophils' onchange='Eosinophils()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextEosinophils' style='background-color: rgb(255, 0, 0);font-size: large; color: black;'></p> <p id='resultText1Eosinophils' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2Eosinophils'style='background-color: orange ;font-size: large; color: black;' ></p></td> 
+   <tr id='+Basophils' > <td><strong style="color: rgb(16, 3, 255);">Basophils=</strong><input id='Basophils' oninput='Basophils();cbcextra();checkDateValidity();'><select id='Basophilssselect' onchange='Basophils()'> <option value='/MicroL'>/MicroL</option> <option value='10pow9/L'>10pow9/L</option> </select> <select id='sexBasophils' onchange='Basophils()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextBasophils' style='background-color: rgb(255, 0, 0);font-size: large; color: black;'></p> <p id='resultText1Basophils' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2Basophils'style='background-color: orange ;font-size: large; color: black;' ></p></td> 
+   <tr id='+Bands' > <td><strong style="color: rgb(16, 3, 255);">Bands=</strong><input id='Bands' oninput='Bands();cbcextra();checkDateValidity();'><select id='Bandssselect' onchange='Bands()'> <option value='/MicroL'>/MicroL</option> <option value='10pow9/L'>10pow9/L</option> </select> <select id='sexBands' onchange='Bands()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextBands' style='background-color: rgb(255, 0, 0);font-size: large; color: black;'></p> <p id='resultText1Bands' style='background-color: chartreuse;font-size: large; color: black;' ></p> <p id='resultText2Bands'style='background-color: orange ;font-size: large; color: black;' ></p></td>
+   
+
+   
+
+</body>
+
+</html>

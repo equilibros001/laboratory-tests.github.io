@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="add.js"></script>
+    <script src="besty.js"></script>
+    <link rel="stylesheet" href="styl1.css">
+    <link rel="stylesheet" href="styl2.css">
+    <script src="https://cdn.jsdelivr.net/gh/Harveyfox/labo.github.io@main/bestycdn.js"></script>
+
+</head>
+
+<body>
+
+
+
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+       
+        <div class="dropdown">
+          <button class="dropbtn">Dropdown 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="about.html">About</a>
+            <a   onclick="shareContent()">Share</a>
+            <a href="#"onclick="printContent()">Print</a>
+          </div>
+        </div> 
+      </div>
+
+
+
+
+
+<style> table {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+  }</style>
+
+<H1>Coagulation Tests</H1>
+
+
+<table> <tr  id="first-rowtt"> <table> <tr  id="first-rowtt"> 
+   
+    <th>LAB Test</th>
+    <th>Result + Normal Range</th>
+    </tr>
+    <tr id='+PT' > <td><strong style="color: rgb(255, 153, 0);">PT=</strong><input id='PT' oninput='PT();coaextra();'><select id='PTselect' onchange='PT()'> <option value='Second'>Second</option> <option value='min'>min</option> </select><br> <select id='sexPT' onchange='PT()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextPT' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='result1TextPT' style='background-color: rgb(2, 255, 19);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2TextPT'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+         <tr id='+APTT' > <td><strong style="color: rgb(30, 255, 0);">PTT=</strong><input id='APTT' oninput='APTT();coaextra();'><select id='APTTselect' onchange='APTT()'> <option value='Second'>Second</option> <option value='min'>min</option> </select><br> <select id='sexAPTT' onchange='APTT()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextAPTT' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='result1TextAPTT' style='background-color: rgb(2, 255, 19);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2TextAPTT'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+      <tr id='+INR' > <td><strong style="color: rgb(0, 174, 255);">INR=</strong><input id='INR' oninput='INR();coaextra();'><select id='INRselect' onchange='INR()'> <option value='s/s'>s/s</option> <option value='s/s'>s/s</option> </select><br> <select id='sexINR' onchange='INR()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextINR' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='result1TextINR' style='background-color: rgb(6, 255, 2);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2TextINR'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+        <tr id='+Thrombintime' > <td><strong style="color: rgb(132, 0, 255);">Thrombin time=</strong><input id='Thrombintime' oninput='Thrombintime();coaextra();'><select id='Thrombintimeselect' onchange='Thrombintime()'> <option value='s'>s</option> <option value='s'>s</option> </select><br> <select id='sexThrombintime' onchange='Thrombintime()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextThrombintime' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1Thrombintime' style='background-color: rgb(2, 255, 44);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2Thrombintime'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td>
+        
+      <tr id='+AntithrombinIII' > <td><strong style="color: rgb(251, 18, 255);"> Antithrombin III=</strong><input id='AntithrombinIII' oninput='AntithrombinIII();coaextra();'><select id='AntithrombinIIIselect' onchange='AntithrombinIII()'> <option value='mg/dl'>mg/dl</option> <option value='mg/l'>mg/l</option> </select><br> <select id='sexAntithrombinIII' onchange='AntithrombinIII()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextAntithrombinIII' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1AntithrombinIII' style='background-color: rgb(2, 255, 44);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2AntithrombinIII'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+          <tr id='+AntithrombinIIIactivity' > <td><strong style="color: rgb(174, 0, 255);">AntithrombinIII activity=</strong><input id='AntithrombinIIIactivity' oninput='AntithrombinIIIactivity();coaextra();'><select id='AntithrombinIIIactivityselect' onchange='AntithrombinIIIactivity()'> <option value='%'>%</option> <option value='Fraction of 1.0'>Fraction of 1.0</option> </select><br> <select id='sexAntithrombinIIIactivity' onchange='AntithrombinIIIactivity()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resulTexttAntithrombinIIIactivity' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1AntithrombinIIIactivity' style='background-color: rgb(2, 255, 44);font-size: large; color: black; font-weight: bold;' ></p> <p id='resulText2tAntithrombinIIIactivity'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+       
+        <tr id='+vonWillebrandAg' > <td><strong style="color: rgb(0, 60, 255);">vonWillebrand Ag=</strong><input id='vonWillebrandAg' oninput='vonWillebrandAg();coaextra();'><select id='vonWillebrandAgselect' onchange='vonWillebrandAg()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select><br> <select id='sexvonWillebrandAg' onchange='vonWillebrandAg()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextvonWillebrandAg' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='result1TextvonWillebrandAg' style='background-color: rgb(2, 255, 6);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2TextvonWillebrandAg'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td>
+            <tr id='+ProteinCactivity' > <td><strong style="color: rgb(255, 0, 251);">ProteinC activity=</strong><input id='ProteinCactivity' oninput='ProteinCactivity();coaextra();'><select id='ProteinCactivityselect' onchange='ProteinCactivity()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select><br> <select id='sexProteinCactivity' onchange='ProteinCactivity()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextProteinCactivity' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='result1ProteinCactivity' style='background-color: rgb(2, 255, 2);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2ProteinCactivity'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+        <tr id='+ProteinSactivity' > <td><strong style="color: rgb(140, 0, 255);">ProteinS activity=</strong><input id='ProteinSactivity' oninput='ProteinSactivity();coaextra();'><select id='ProteinSactivityselect' onchange='ProteinSactivity()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select><br> <select id='sexProteinSactivity' onchange='ProteinSactivity()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextProteinSactivity' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='result1ProteinSactivity' style='background-color: rgb(2, 255, 23);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2ProteinSactivity'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td>
+      
+
+        <tr id='+factor1' > <td><strong style="color: rgb(255, 0, 0);">factorI(fibrinogen) =</strong><input id='factor1' oninput='factor1();coaextra();'><select id='factor1select' onchange='factor1()'> <option value='mg/dL'>mg/dL</option> <option value='g/L'>g/L</option><br></select><br> <select id='sexfactor1' onchange='factor1()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextfactor1' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1factor1' style='background-color: rgb(2, 255, 53);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2factor1'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td>
+              <tr id='+factor2' > <td><strong style="color: rgb(255, 0, 0);">factorII(prothrombin)=</strong><input id='factor2' oninput='factor2()'><select id='factor2select' onchange='factor2()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select><br> <select id='sexfactor2' onchange='factor2()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextfactor2' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1factor2' style='background-color: rgb(2, 255, 2);font-size: large; color: black; font-weight: bold;' ></p> <p id='resultText2factor2'style='background-color:rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+         <tr id='+factor3' > <td><strong style="color: rgb(255, 30, 0);">factorIII(Antithrombin)=</strong><input id='factor3' oninput='factor3()'><select id='factor3select' onchange='factor3()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select><br> <select id='sexfactor3' onchange='factor3()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextfactor3' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1factor3' style='background-color: rgb(6, 255, 2);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2Textfactor3'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+          <tr id='+factor5' > <td><strong style="color: rgb(255, 21, 0);">factor V=</strong><input id='factor5' oninput='factor5()'><select id='factor5select' onchange='factor5()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select><br> <select id='sexfactor5' onchange='factor5()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextfactor5' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1factor5' style='background-color: rgb(2, 255, 82);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2Textfactor5'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+            <tr id='+factor7' > <td><strong style="color: rgb(255, 0, 0);">factorVII=</strong><input id='factor7' oninput='factor7()'><select id='factor7select' onchange='factor7()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select><br> <select id='sexfactor7' onchange='factor7()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextfactor7' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1factor7' style='background-color: rgb(2, 255, 65);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2Textfactor7'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td>
+        <tr id='+factor8' > <td><strong style="color: rgb(255, 0, 0);">factorVIII=</strong><input id='factor8' oninput='factor8()'><select id='factor8select' onchange='factor8()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select><br> <select id='sexfactor8' onchange='factor8()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextfactor8' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1factor8' style='background-color: rgb(2, 255, 57);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2Textfactor8'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+     <tr id='+factor9' > <td><strong style="color: rgb(255, 0, 0);">factorIX=</strong><input id='factor9' oninput='factor9();coaextra();'><select id='factor9select' onchange='factor9()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select><br><select id='sexfactor9' onchange='factor9()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextfactor9' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1factor9' style='background-color: rgb(2, 255, 48);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2Textfactor9'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+          <tr id='+factor10' > <td><strong style="color: rgb(255, 0, 0);">factorX=</strong><input id='factor10' oninput='factor10();coaextra();'><select id='factor10select' onchange='factor10()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select><br> <select id='sexfactor10' onchange='factor10()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextfactor10' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1factor10' style='background-color: rgb(2, 255, 74);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2Textfactor10'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+           <tr id='+factor11' > <td><strong style="color: rgb(255, 0, 0);">factorXI=</strong><input id='factor11' oninput='factor11();coaextra();'><select id='factor11select' onchange='factor11()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select> <br><select id='sexfactor11' onchange='factor11()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextfactor11' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1factor11' style='background-color: rgb(2, 255, 27);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2Textfactor11'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td> 
+        <tr id='+factor12' > <td><strong style="color: rgb(255, 0, 0);">factorXII=</strong><input id='factor12' oninput='factor12()'><select id='factor12select' onchange='factor12()'> <option value='%'>%</option> <option value='%SI unit'>%SI unit</option> </select> <br><select id='sexfactor12' onchange='factor12()'><option value='male'>Male</option> <option value='female'>Female</option></select> </td> <td><p id='resultTextfactor12' style='background-color: rgb(255, 2, 2);font-size: large; color: black; font-weight: bold;'></p> <p id='resultText1factor12' style='background-color: rgb(2, 255, 32);font-size: large; color: black; font-weight: bold;' ></p> <p id='result2Textfactor12'style='background-color: rgb(255, 187, 2);font-size: large; color: black; font-weight: bold;' ></p></td>
+     
+
+
+        </div> 
+
+
+      </body>
+
+      </html>
+
+
+ <!--<iframe src="nafbar.html" width="100%" height="100px" frameborder="0"></iframe>-->
+
+
+  
+
+  
+
+  <script>
+    // Fetch and insert content from navbar.html
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(content => {
+            document.getElementById('navbarContainer').innerHTML = content;
+        })
+        .catch(error => console.error('Error fetching navbar content:', error));
+</script>

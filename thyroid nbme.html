@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="add.js"></script>
+    <script src="besty.js"></script>
+    <link rel="stylesheet" href="styl1.css">
+    <link rel="stylesheet" href="styl2.css">
+    <script src="https://cdn.jsdelivr.net/gh/Harveyfox/labo.github.io@main/bestycdn.js"></script>
+
+</head>
+
+<body>
+
+
+
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+       
+        <div class="dropdown">
+          <button class="dropbtn">Dropdown 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="about.html">About</a>
+            <a   onclick="shareContent()">Share</a>
+            <a href="#"onclick="printContent()">Print</a>
+          </div>
+        </div> 
+      </div>
+
+<style> table {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+  }</style>
+
+
+<h1>Thyroid Tests</h1>
+
+
+<table> <tr  id="first-rowtt"> 
+    <th>LAB Test</th>
+    <th>Result + Normal Range</th>
+    </tr>
+
+
+<tr id='+TSH' ><td><strong style="color: blueviolet;">TSH=</strong><input id='TSH' oninput='TSH();thyroextra()'><select id='TSHselect' onchange='TSH()'><option value='MicroU/mL'>MicroU/mL</option><option value='mIU/L'>mIU/L</option> </select></td><td> <p id='resultTextTSH' style='background-color: rgb(255, 36, 2);font-size: large; color: black; font-weight: bold;'></p><p id='resultText1TSH' style='background-color: chartreuse;font-size: large; color: black;' ></p><p id='resultText2TSH' style='background-color: rgb(0, 195, 255);font-size: large; color: black;' ></p></td></tr>
+<tr id='+FT4' ><td><strong style="color: rgb(226, 43, 43);">FT4=</strong><input id='FT4' oninput='FT4();thyroextra()'><select id='FT4select' onchange='FT4()'><option value=' ng/dL'> ng/dL</option><option value='pmol/L'>pmol/L</option> </select></td><td> <p id='resultTextFT4' style='background-color: rgb(255, 36, 2);font-size: large; color: black; font-weight: bold;'></p><p id='resultText1FT4' style='background-color: chartreuse;font-size: large; color: black;' ></p><p id='resultText2FT4' style='background-color: rgb(0, 195, 255);font-size: large; color: black;' ></p></td></tr>
+<tr id='+totalT4' ><td><strong style="color: rgb(248, 161, 0);">Total T4=</strong><input id='totalT4' oninput='totalT4();thyroextra()'><select id='totalT4select' onchange='totalT4()'><option value=' Microg/dL'> Microg/dL</option><option value='nmol/L'>nmol/L</option> </select></td><td> <p id='resultTexttotalT4' style='background-color: rgb(255, 36, 2);font-size: large; color: black; font-weight: bold;'></p><p id='resultText1totalT4' style='background-color: chartreuse;font-size: large; color: black;' ></p><p id='result2TexttotalT4' style='background-color: rgb(0, 195, 255);font-size: large; color: black;' ></p></td></tr>
+<tr id='+TotalT3' ><td><strong style="color: rgb(0, 255, 17);">Total T3=</strong><input id='TotalT3' oninput='TotalT3()'><select id='TotalT3select' onchange='TotalT3()'><option value='ng/dL'>ng/dL</option><option value=' nmol/L'> nmol/L</option> </select></td><td> <p id='resultTextTotalT3' style='background-color: rgb(255, 36, 2);font-size: large; color: black; font-weight: bold;'></p><p id='resultText1TotalT3' style='background-color: chartreuse;font-size: large; color: black;' ></p><p id='resultText2TotalT3' style='background-color: rgb(0, 195, 255);font-size: large; color: black;' ></p></td></tr>
+<tr id='+FT3' ><td><strong style="color: rgb(43, 55, 226);">FT3=</strong><input id='FT3' oninput='FT3()'><select id='FT3select' onchange='FT3()'><option value='pg/dL'>pg/dL</option><option value=' pmol/L'> pmol/L</option> </select></td><td> <p id='resultTextFT3' style='background-color: rgb(255, 36, 2);font-size: large; color: black; font-weight: bold;'></p><p id='resultText1FT3' style='background-color: chartreuse;font-size: large; color: black;' ></p><p id='resultText2FT3' style='background-color: rgb(0, 195, 255);font-size: large; color: black;' ></p></td></tr>
+<tr id='+Iodineuptake' ><td><strong style="color: rgb(226, 43, 226);"></strong>Iodine uptake  (I<sup>123</sup>)=<input id='Iodineuptake' oninput='Iodineuptake()'><select id='Iodineuptakeselect' onchange='Iodineuptake()'><option value='%/24 h'>%/24 h</option><option value='/24 h'>/24 h</option> </select></td><td> <p id='resultTextIodineuptake' style='background-color: rgb(255, 36, 2);font-size: large; color: black; font-weight: bold;'></p><p id='resultText1Iodineuptake' style='background-color: chartreuse;font-size: large; color: black;' ></p><p id='resultText2Iodineuptake' style='background-color: rgb(0, 195, 255);font-size: large; color: black;' ></p></td></tr>
+<tr id='+PTH' ><td><strong style="color: rgb(170, 255, 0);">PTH (intact)=</strong><input id='PTH' oninput='PTH();thyroextra()'><select id='PTHselect' onchange='PTH()'><option value='pg/mL'>pg/mL</option><option value='ng/L'>ng/L</option> </select></td><td> <p id='resultTextPTH' style='background-color: rgb(255, 36, 2);font-size: large; color: black; font-weight: bold;'></p><p id='resultText1PTH' style='background-color: chartreuse;font-size: large; color: black;' ></p><p id='resultText2PTH' style='background-color: rgb(0, 195, 255);font-size: large; color: black;' ></p></td></tr>
+
+
+
+
+
+
+
+</body>
+
+</html>

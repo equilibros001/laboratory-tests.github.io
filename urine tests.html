@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="add.js"></script>
+    <script src="besty.js"></script>
+    <link rel="stylesheet" href="styl1.css">
+    <link rel="stylesheet" href="styl2.css">
+    <script src="https://cdn.jsdelivr.net/gh/Harveyfox/labo.github.io@main/bestycdn.js"></script>
+
+</head>
+
+<body>
+
+
+
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+       
+        <div class="dropdown">
+          <button class="dropbtn">Dropdown 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="about.html">About</a>
+            <a   onclick="shareContent()">Share</a>
+            <a href="#"onclick="printContent()">Print</a>
+          </div>
+        </div> 
+      </div>
+
+
+<style> table {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+  }</style>
+
+
+<h1>URINE Test</h1>
+
+
+<table> <tr  id="first-rowtt"> 
+    <th>LAB Test</th>
+    <th>Result + Normal Range</th>
+    </tr>
+
+
+
+
+<tr id='+Calcium' ><td><strong style='color: rgb(16, 21, 165)'>Urine Calcium=</strong><input id='Calcium' oninput='Calcium()'><select id='Calciumselect' onchange='Calcium()'><option value='mg/24 h'>mg/24 h</option><option value='mmol/24 h'>mmol/24 h</option> </select></td><td> <p id='resultTextCalcium' style='background-color: rgb(255, 36, 2);font-size: large; color: black; font-weight: bold;'></p><p id='resultText1Calcium' style='background-color: chartreuse;font-size: large; color: black;' ></p><p id='resultText2Calcium' style='background-color: rgb(0, 195, 255);font-size: large; color: black;' ></p></td></tr>
+<tr id='+Oxalate' ><td><strong style='color: rgb(255, 208, 0)'>Urine Oxalate=</strong><input id='Oxalate' oninput='Oxalate()'><select id='Oxalateselect' onchange='Oxalate()'><option value='Microg/mL'>Microg/mL</option><option value='Micromol/L'>Micromol/L</option> </select></td><td> <p id='resultTextOxalate' style='background-color: rgb(255, 36, 2);font-size: large; color: black; font-weight: bold;'></p><p id='resultText1Oxalate' style='background-color: chartreuse;font-size: large; color: black;' ></p><p id='resultText2Oxalate' style='background-color: rgb(0, 195, 255);font-size: large; color: black;' ></p></td></tr>
+<tr id='+Osmolality' ><td><strong style='color: rgb(21, 165, 16)'>Urine Osmolality=</strong><input id='Osmolality' oninput='Osmolality()'><select id='Osmolalityselect' onchange='Osmolality()'><option value='mOsmol/kg H2O'>mOsmol/kg H2O</option><option value='mOsmol/kg H2O'>mOsmol/kg H2O</option> </select></td><td> <p id='resultTextOsmolality' style='background-color: rgb(255, 36, 2);font-size: large; color: black; font-weight: bold;'></p><p id='resultText1Osmolality' style='background-color: chartreuse;font-size: large; color: black;' ></p><p id='resultText2Osmolality' style='background-color: rgb(0, 195, 255);font-size: large; color: black;' ></p></td></tr>
+<tr id='+Protein' ><td><strong style='color: rgb(128, 16, 165)'>Urine Protein(Total)=</strong><input id='Protein' oninput='Protein()'><select id='Proteinselect' onchange='Protein()'><option value=' mg/24 h'> mg/24 h</option><option value='g/24 h'>g/24 h</option> </select></td><td> <p id='resultTextProtein' style='background-color: rgb(255, 36, 2);font-size: large; color: black; font-weight: bold;'></p><p id='resultText1Protein' style='background-color: chartreuse;font-size: large; color: black;' ></p><p id='resultText2Protein' style='background-color: rgb(0, 195, 255);font-size: large; color: black;' ></p></td></tr>
+
+
+
+</body>
+
+</html>
