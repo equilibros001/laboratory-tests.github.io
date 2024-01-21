@@ -101,3 +101,21 @@ footer {
     width: 100%;
     font-size: medium;
 }
+input {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  border-color: black;
+  background-color: rgb(255, 255, 255);
+}
+select{
+  display: block;
+background-color: rgb(25, 183, 211);
+font-size: 20px;
+margin-bottom: 0px;
+margin-left: 10px;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
