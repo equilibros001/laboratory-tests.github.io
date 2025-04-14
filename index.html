@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="styl2.css">
     <script src="besty.js"></script>
 
+
+
+    
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4908545703342747"
+     crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -52,11 +57,8 @@
 
 
 
-<!-- Only works on approved domains -->
-pub
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4908545703342747"
-     crossorigin="anonymous"></script>
+
 
     
     
@@ -108,8 +110,43 @@ pub
 
 
 
-pub <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4908545703342747"
-     crossorigin="anonymous"></script>
+
+    <div id="consent-banner" style="position:fixed;bottom:0;background:#fff;padding:20px;width:100%;z-index:9999;box-shadow:0 -2px 10px rgba(0,0,0,0.1);">
+  <p>We use cookies to personalize ads. <a href="/privacy.html">Privacy Policy</a></p>
+  <button onclick="grantConsent()">Accept</button>
+  <button onclick="showSettings()">Manage</button>
+</div>
+
+<script>
+// Consent management
+function grantConsent() {
+  localStorage.setItem('adsConsent', 'granted');
+  document.getElementById('consent-banner').style.display = 'none';
+  loadAds();
+}
+
+function showSettings() {
+  alert("Enable/disable ad categories here");
+}
+
+function loadAds() {
+  // Only loads ads if consent was given
+  if (localStorage.getItem('adsConsent') === 'granted') {
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  }
+}
+
+// Check consent on page load
+document.addEventListener('DOMContentLoaded', function() {
+  if (localStorage.getItem('adsConsent') !== 'granted') {
+    document.getElementById('consent-banner').style.display = 'block';
+  } else {
+    loadAds();
+  }
+});
+</script>
+
+
            <footer>
             &copy; Copyright 2024 lab test reader. All rights reserved.
         </footer>
