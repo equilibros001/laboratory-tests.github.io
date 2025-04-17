@@ -1,26 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="add.js"></script>
-    <link rel="stylesheet" href="styl1.css">
-    <link rel="stylesheet" href="styl2.css">
-    <script src="besty.js"></script>
+ <script src="cordova.js"></script>
+ <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+ 
 
 
-
-    
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4908545703342747"
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4908545703342747"
      crossorigin="anonymous"></script>
 </head>
 
 
-     
 
-    
 <body>
-
 
 
 
@@ -33,30 +29,25 @@
           </button>
           <div class="dropdown-content">
             <a href="about.html">About</a>
-            <a   onclick="shareContent()">Share</a>
-            <a href="#"onclick="printContent()">Print</a>
-
-                  <a href="PWA/index.html">About</a>
+   
           </div>
         </div> 
       </div>
-
+   
 
 
 <section style="margin-top: 00px;">
     
-    <div id="container1">
-        <img id="app-logo" src="pic/logonew.jpg" alt="App Logo">
-        <h1 style="color: crimson;">Lab Test Reader</h1>
+ <div id="container2">
+       <div><img id="app-logo" src="pic/logonew.jpg" alt="App Logo"></div>
+       <div><h1 style="color: crimson;">Lab Test Reader</h1>
         <h3>More than 100  laboratory tests +++</h3>
-      <h5>App designed for :Healthcare professionals,Medical students and individuals without medical expertise...</h5>
-        
-       
-    </div>
+      <h5>App designed for :Healthcare professionals,Medical students<br> and individuals without medical expertise...
+    </div> 
+</div>
 
 </section>
 
-   
 <!-- joker -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -67,14 +58,8 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script> 
-
-
-
-
-
-
-    
-    
+        
+  
     <div class="button-container">
         <a href="CBC.HTML" ><button style="background-image: url(pic/cbcfinal.jpg);background-size: cover;"  >CBC </button></a> 
         <a href="cholesterol test.html" ><button style="background-image: url(pic/lipid4.jpg);background-size: cover">Lipid Profil</button></a> 
@@ -86,6 +71,12 @@
         <a href="glucose.html" ><button style="background-image: url(pic/glucose.jpg);background-size: cover;"  > Sugar test</button></a> 
         <a href="electrolyt.html" ><button style="background-image: url(pic/elect.jpg);background-size: cover">Electrolytes Test</button></a> 
     </div>
+
+    <div class="button-container">
+
+      <a href="coagulation.html" ><button style="background-image: url(pic/coa.jpg);background-size: cover;"  > Coagulation test</button></a> 
+      <a href="CSF.html" ><button style="background-image: url(pic/csf.jpg);background-size: cover">CSF Test</button></a> 
+  </div>
 
     <div class="button-container">
 
@@ -121,48 +112,16 @@
         <a href="organ daamage tests.html" ><button style="background-image: url(pic/orgadamafinal.jpg);background-size: cover;"  >OD test </button></a> 
            </div>
 
+           <div class="button-container">
+            <a href="sex hormones.html" ><button style="background-image: url(pic/hormon.jpg);background-size: cover;"  >Hormones blood test </button></a> 
+            
+                </div>
+
+           <section style="height: 70px;"></section>
 
 
 
-    <div id="consent-banner" style="position:fixed;bottom:0;background:#fff;padding:20px;width:100%;z-index:9999;box-shadow:0 -2px 10px rgba(0,0,0,0.1);">
-  <p>We use cookies to personalize ads. <a href="/privacy.html">Privacy Policy</a></p>
-  <button onclick="grantConsent()">Accept</button>
-  <button onclick="showSettings()">Manage</button>
-</div>
-
-<script>
-// Consent management
-function grantConsent() {
-  localStorage.setItem('adsConsent', 'granted');
-  document.getElementById('consent-banner').style.display = 'none';
-  loadAds();
-}
-
-function showSettings() {
-  alert("Enable/disable ad categories here");
-}
-
-function loadAds() {
-  // Only loads ads if consent was given
-  if (localStorage.getItem('adsConsent') === 'granted') {
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  }
-}
-
-// Check consent on page load
-document.addEventListener('DOMContentLoaded', function() {
-  if (localStorage.getItem('adsConsent') !== 'granted') {
-    document.getElementById('consent-banner').style.display = 'block';
-  } else {
-    loadAds();
-  }
-});
-</script>
-
-
-
-
-<ins class="adsbygoogle"
+           <ins class="adsbygoogle"
      style="display:block"
      data-ad-format="autorelaxed"
      data-ad-client="ca-pub-4908545703342747"
@@ -170,12 +129,52 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-    
-           <footer>
+
+
+
+
+
+
+<div id="consent-banner" style="position:fixed;bottom:0;background:#fff;padding:20px;width:100%;z-index:9999;box-shadow:0 -2px 10px rgba(0,0,0,0.1);">
+  <p>We use cookies to personalize ads. <a href="/privacy.html">Privacy Policy</a></p>
+  <button onclick="grantConsent()">Accept</button>
+  <button onclick="showSettings()">Manage</button>
+</div>
+
+
+<script>
+  // Consent management
+  function grantConsent() {
+    localStorage.setItem('adsConsent', 'granted');
+    document.getElementById('consent-banner').style.display = 'none';
+    loadAds();
+  }
+  
+  function showSettings() {
+    alert("Enable/disable ad categories here");
+  }
+  
+  function loadAds() {
+    // Only loads ads if consent was given
+    if (localStorage.getItem('adsConsent') === 'granted') {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    }
+  }
+  
+  // Check consent on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('adsConsent') !== 'granted') {
+      document.getElementById('consent-banner').style.display = 'block';
+    } else {
+      loadAds();
+    }
+  });
+  </script>
+  
+
+          <footer>
             &copy; Copyright 2024 lab test reader. All rights reserved.
         </footer>
 </body>
 </html>
-<style>
 
-</style>
