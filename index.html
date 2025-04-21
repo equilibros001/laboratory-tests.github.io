@@ -143,64 +143,83 @@
 
     <script>
 
+// ===== CORE INSTALL LOGIC =====
+        let deferredPrompt;
+        const installBtn = document.getElementById('installButton');
+        const fallbackBanner = document.getElementById('fallbackBanner');
 
-// 1. Store the event globally
-let deferredPrompt = null;
+        // 1. Listen for install prompt (Chrome/Android)
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBtn.style.display = 'block';
+            console.log('✅ Install prompt available');
+        });
 
-// 2. Capture the beforeinstallprompt event
-window.addEventListener('beforeinstallprompt', (e) => {
-  console.log('🟢 beforeinstallprompt event fired');
-  
-  // Prevent Chrome <=67 from automatically showing prompt
-  e.preventDefault();
-  
-  // Stash the event for later use
-  deferredPrompt = e;
-  
-  // Update UI to notify user
-  showInstallButton();
-});
+        // 2. Handle install button click
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User ${outcome} installation`);
+            } else {
+                showFallback();
+            }
+        });
 
-// 3. Show install button (call this when you want the button to appear)
-function showInstallButton() {
-  const installBtn = document.getElementById('installButton');
-  if (installBtn) {
-    installBtn.style.display = 'block';
-    console.log('🟡 Install button shown');
-    
-    // 4. Handle button click
-    installBtn.addEventListener('click', async () => {
-      if (!deferredPrompt) {
-        console.warn('⚠️ No deferredPrompt available');
-        showFallbackInstructions();
-        return;
-      }
-      
-      console.log('🔘 Showing install prompt...');
-      
-      // Show the native prompt
-      deferredPrompt.prompt();
-      
-      // Wait for user to respond
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log(`User ${outcome} the install`);
-      
-      // We've used the prompt, can't use it again
-      deferredPrompt = null;
-      
-      // Hide the button
-      installBtn.style.display = 'none';
-    });
-  }
-}
+        // 3. Show fallback if no prompt available
+        function showFallback() {
+            console.warn('⚠️ Showing fallback instructions');
+            fallbackBanner.innerHTML = `
+                <p>To install this app:</p>
+                ${isIOS() ? getIOSInstructions() : getGenericInstructions()}
+                <button onclick="this.parentNode.style.display='none'">Got It</button>
+            `;
+            fallbackBanner.style.display = 'block';
+        }
 
-// 5. Optional: Track successful installation
-window.addEventListener('appinstalled', () => {
-  console.log('🎉 PWA was installed');
-  deferredPrompt = null;
-});
-            
-    
+        // ===== PLATFORM DETECTION =====
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        }
+
+        function getIOSInstructions() {
+            return `
+                <ol style="text-align: left; max-width: 300px; margin: 0 auto;">
+                    <li>Tap <img src="share-icon.png" style="height:1em; vertical-align:middle"> Share</li>
+                    <li>Select "Add to Home Screen"</li>
+                </ol>
+            `;
+        }
+
+        function getGenericInstructions() {
+            return `
+                <p>Look for <strong>Install</strong> or <strong>Add to Home Screen</strong>
+                in your browser's menu</p>
+            `;
+        }
+
+        // ===== SERVICE WORKER =====
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(reg => console.log('SW registered'))
+                    .catch(err => console.log('SW failed:', err));
+            });
+        }
+
+        // ===== FIRST LOAD BEHAVIOR =====
+        window.addEventListener('load', () => {
+            // Show install button after delay if still hidden
+            setTimeout(() => {
+                if (installBtn.style.display === 'none' && !isIOS()) {
+                    installBtn.style.display = 'block';
+                    installBtn.style.background = '#FF9800';
+                    installBtn.textContent = 'Try Install Anyway';
+                }
+            }, 5000);
+        });
                 
 
     </script>
