@@ -1,7 +1,7 @@
 {
     "name": "My PWA",
     "short_name": "PWA",
-    "start_url": "localhost:8000",
+    "start_url": "laboratory-test.xyz",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#4CAF50",
