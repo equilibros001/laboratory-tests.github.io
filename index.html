@@ -14,12 +14,275 @@
      crossorigin="anonymous"></script>
 
     <meta name="google-adsense-account" content="ca-pub-4908545703342747">
+
+
+<-------------------------------------------------------------------------------------------------->
+
+
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My PWA</title>
+    
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+    
+
+    <link rel="apple-touch-icon" href="icon-180.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="My PWA">
+    
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        /* Install Button Styles */
+        #installContainer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        #installButton {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            display: none; /* Hidden by default */
+            transition: all 0.3s ease;
+        }
+        
+        #installButton:hover {
+            background: #3e8e41;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        /* iOS Instructions */
+        #iosInstall {
+            display: none;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-width: 280px;
+            animation: pulse 2s infinite;
+        }
+        
+        #iosInstall h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        #iosInstall ol {
+            padding-left: 20px;
+        }
+        
+        .share-icon {
+            height: 24px;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Debug Styles */
+        .debug-mode {
+            outline: 2px solid red !important;
+        }
+    </style>
+<-------------------------------------------------------------------------------------------------->
+
+    
 </head>
 
 
 
 <body>
 
+
+<-------------------------------------------------------------------------------------------------->
+
+ <div id="installContainer">
+        <button id="installButton">
+            <span>Install App</span>
+            <span id="badgeNew" style="display:none; background:#ff5722; color:white; border-radius:10px; padding:2px 6px; font-size:0.8em; margin-left:8px;">NEW</span>
+        </button>
+        
+        <div id="iosInstall">
+            <h3>Install This App</h3>
+            <ol>
+                <li>Tap the <strong>Share</strong> button <img src="share-icon.png" class="share-icon" alt="Share icon"></li>
+                <li>Select <strong>"Add to Home Screen"</strong></li>
+                <li>Confirm by tapping <strong>Add</strong></li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+
+
+
+        // ===== CONFIGURATION =====
+        const DEBUG_MODE = true;  // Set to false in production
+        const FORCE_SHOW_BUTTON = true;  // For testing purposes
+        
+        // ===== PWA INSTALLATION =====
+        let deferredPrompt;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            if (DEBUG_MODE) console.log('🔔 beforeinstallprompt event fired', e);
+            
+            // Prevent default browser install prompt
+            e.preventDefault();
+            
+            // Store the event for later use
+            deferredPrompt = e;
+            
+            // Update UI to notify user
+            const installBtn = document.getElementById('installButton');
+            installBtn.style.display = 'block';
+            document.getElementById('badgeNew').style.display = 'inline';
+            
+            if (DEBUG_MODE) {
+                installBtn.classList.add('debug-mode');
+                console.log('🟢 Install button should be visible now');
+            }
+        });
+        
+        // Handle install button click
+        document.getElementById('installButton').addEventListener('click', async () => {
+            if (!deferredPrompt) {
+                if (DEBUG_MODE) console.warn('⚠️ No deferredPrompt available');
+                return;
+            }
+            
+            // Show the install prompt
+            deferredPrompt.prompt();
+            
+            // Wait for user to respond
+            const { outcome } = await deferredPrompt.userChoice;
+            
+            if (DEBUG_MODE) console.log(`🟡 User ${outcome} the installation`);
+            
+            // Hide the button if accepted
+            if (outcome === 'accepted') {
+                document.getElementById('installButton').style.display = 'none';
+            }
+            
+            // Clear the deferredPrompt variable
+            deferredPrompt = null;
+        });
+        
+        // Track successful installation
+        window.addEventListener('appinstalled', () => {
+            if (DEBUG_MODE) console.log('🎉 PWA was successfully installed');
+            document.getElementById('installButton').style.display = 'none';
+        });
+        
+        // ===== IOS DETECTION =====
+        function isIOS() {
+            return (
+                /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+            );
+        }
+        
+        // Show iOS instructions if needed
+        if (isIOS() && !window.navigator.standalone) {
+            if (DEBUG_MODE) console.log('🍎 iOS device detected');
+            
+            document.getElementById('iosInstall').style.display = 'block';
+            document.getElementById('installButton').style.display = 'none';
+            
+            // Create share icon if missing
+            if (!document.querySelector('.share-icon')) {
+                const shareIcon = document.createElement('img');
+                shareIcon.className = 'share-icon';
+                shareIcon.src = 'share-icon.png';
+                shareIcon.alt = 'Share icon';
+                document.querySelector('#iosInstall ol li:first-child').prepend(shareIcon);
+            }
+        }
+        
+        // ===== SERVICE WORKER REGISTRATION =====
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        if (DEBUG_MODE) console.log('✅ ServiceWorker registered:', registration);
+                        
+                        // Check for updates hourly
+                        setInterval(() => {
+                            registration.update();
+                            if (DEBUG_MODE) console.log('🔄 Checking for service worker updates...');
+                        }, 60 * 60 * 1000);
+                    })
+                    .catch(error => {
+                        console.error('❌ ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+        
+        // ===== DEBUGGING TOOLS =====
+        if (DEBUG_MODE) {
+            // Force show install button after 3 seconds if not shown
+            setTimeout(() => {
+                if (!deferredPrompt && FORCE_SHOW_BUTTON) {
+                    console.warn('⚠️ No install event after 3s - forcing button display');
+                    document.getElementById('installButton').style.display = 'block';
+                    document.getElementById('installButton').style.background = '#ff5722';
+                    document.getElementById('badgeNew').style.display = 'inline';
+                }
+            }, 3000);
+            
+            // Add debug border to all elements
+            document.addEventListener('click', (e) => {
+                if (e.shiftKey) {
+                    e.target.classList.toggle('debug-mode');
+                    console.log('🔍 Debug element:', e.target);
+                }
+            });
+            
+            console.log('🔧 Debug mode active. Hold Shift and click to inspect elements');
+        }
+
+        // Temporary test code (remove after)
+deferredPrompt = {
+  prompt: () => console.log('Prompt would show'),
+  userChoice: Promise.resolve({ outcome: 'accepted' })
+};
+document.getElementById('installButton').click();
+
+    </script>
+
+    <-------------------------------------------------------------------------------------------------->
+
+
+
+    
 
 
     <div class="navbar">
