@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="cordova.js"></script>
+ <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+<script src="https://cdn.jsdelivr.net/gh/Harveyfox/labo.github.io@main/"></script>
+
+</head>
+
+<body>
+
+
+
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+       
+        <div class="dropdown">
+          <button class="dropbtn">Dropdown 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="about.html">About</a>
+            <a   onclick="shareContent()">Share</a>
+            <a href="#"onclick="printContent()">Print</a>
+          </div>
+        </div> 
+      </div>
+
+<head>
+    <p>.</p>
+    <p>.</p>
+    <p>.</p>
+    <title>Formula Calculator</title>
+    <style>
+        .calculator {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 30%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .buttonx{
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+   
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-radius: 4px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2> RBC WBC minute Calculator</h2>
+            
+        <div class="input-group">
+            <label for="inputA"> Cell Count:</label>
+            <input type="number" id="inputA" placeholder="Enter value for A">
+
+        
+        </div>
+        
+        <div>
+        <div class="input-group">
+            <label for="inputB"> urine volume:</label>
+            <input type="number" id="inputB" placeholder="Enter value for B">
+    
+    
+            <select id="selectV">
+                <option value="1000000"> l</option>
+                <option value="1000"> ml</option>
+             
+            </select>
+        </div>
+    </div>
+        <div class="input-group">
+            <label for="inputC">time:</label>
+            <input type="number" id="inputC" placeholder="Enter value for C">
+    
+            <select id="selectZ">
+                <option value="60">hour</option>
+                <option value="1">min</option>
+              
+            </select>
+        </div>
+        
+        <div class="input-group">
+            <label for="inputD">kova slide:</label>
+            <input type="number" id="inputD" placeholder="Enter value " value="1">
+    
+            <select id="selectD">
+             
+                <option value="1">Microl</option>
+              
+            </select>
+        </div>
+     
+        
+        <div class="input-group">
+            <label for="selectM"> Centrifigation:</label>
+            <select id="selectM" >
+                <option value="10">yes</option>
+                <option value="1">no</option>
+              
+            </select>
+        </div>
+        
+        <button  style="  padding-top: 2px; background-color: #ff0000;" onclick="calculate()">Calculate</button>
+        <br><br>
+        
+        <div class="buttonx" id="result">
+            Result will appear here
+        </div><br>
+        <select id="selectT" onchange="calculate()">
+            <option value="1">min</option>
+            <option value="0.016666">hour</option>
+    
+          
+        </select>
+    </div>
+
+    <script>
+        function calculate() {
+            // Get input values
+            const A = parseFloat(document.getElementById('inputA').value) || 0;
+            const B = parseFloat(document.getElementById('inputB').value) || 0;
+            const C = parseFloat(document.getElementById('inputC').value) || 1; // Default to 1 to avoid division by zero
+            const D = parseFloat(document.getElementById('inputD').value) || 1;
+            // Get select values
+            const selectZ = parseFloat(document.getElementById('selectZ').value);
+            const selectV = parseFloat(document.getElementById('selectV').value);
+            const selectM = parseFloat(document.getElementById('selectM').value);
+            const selectT = parseFloat(document.getElementById('selectT').value);
+          
+
+            
+            const result = A * B * selectV * selectM*selectT / (C * selectZ*D) 
+            
+       
+            document.getElementById('result').innerHTML = result.toFixed(2)
+        }
+    </script>
+</body>
+</html>
